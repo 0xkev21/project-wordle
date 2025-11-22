@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 
-function Form() {
+function Form({ handleSubmitGuess }) {
   const [input, setInput] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSubmitGuess(input);
+    setInput("");
+  };
   return (
-    <form
-      className="guess-input-wrapper"
-      onSubmit={(e) => {
-        e.preventDefault();
-        console.log({ guess: input });
-        setInput("");
-      }}
-    >
+    <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         id="guess-input"
