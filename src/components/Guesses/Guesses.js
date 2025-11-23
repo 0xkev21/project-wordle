@@ -4,11 +4,12 @@ import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
 import Guess from "../Guess/Guess";
 
-function Guesses({ guesses }) {
+function Guesses({ guesses, answer }) {
   return (
     <div className="guess-results">
       {range(NUM_OF_GUESSES_ALLOWED).map((i) => (
         <Guess
+          answer={answer}
           guess={guesses[i] && guesses[i].guess}
           key={guesses[i] ? guesses[i].id : i}
         />
