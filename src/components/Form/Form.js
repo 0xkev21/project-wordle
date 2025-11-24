@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Form({ handleSubmitGuess }) {
+function Form({ handleSubmitGuess, isGameOver }) {
   const [input, setInput] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +14,7 @@ function Form({ handleSubmitGuess }) {
         id="guess-input"
         type="text"
         value={input}
+        disabled={isGameOver}
         onChange={(e) => {
           setInput(e.target.value.toUpperCase());
         }}
